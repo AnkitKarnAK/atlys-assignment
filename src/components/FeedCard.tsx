@@ -7,6 +7,7 @@ export const FeedCard = () => {
                 <div>
                     <div className="flex justify-between items-center mb-5">
                         <div className="flex items-center gap-4">
+                            {/* <div className="h-11 w-11 min-w-11 self-start flex items-center justify-center rounded-full bg-primary-500">K</div> */}
                             <img src="/images/user-2.png" alt="profile picture of Jane Smith" className="h-11 w-11 rounded-full" />
                             <div className="">
                                 <h3 className="font-medium text-light-500">Jane Smith</h3>

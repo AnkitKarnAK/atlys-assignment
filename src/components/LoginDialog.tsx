@@ -1,13 +1,36 @@
 import { Button } from "@/components"
+import { useAuthActions } from "@/store/auth-store";
 import { useNavigate } from "@tanstack/react-router"
 
 export const LoginDialog = () => {
-
     const navigate = useNavigate();
+    const { login } = useAuthActions();
+
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const form = e.target as HTMLFormElement;
+        const enteredEmailOrUsername = (form.elements.namedItem('emailOrUsername') as HTMLInputElement).value;
+        const enteredPassword = (form.elements.namedItem('password') as HTMLInputElement).value;
+
+        const isSuccess = login?.(enteredEmailOrUsername, enteredPassword);
+
+        if (isSuccess) {
+            navigate({
+                to: "/"
+            })
+        } else {
+            alert("Login failed")
+        }
+
+    }
+
+
 
     return (
         <div className="w-full max-w-[464px] bg-gradient-ring-outer p-0.5 rounded-lg">
-            <form className="flex w-full flex-col bg-gradient-inner rounded-lg px-5 py-9">
+            <form className="flex w-full flex-col bg-gradient-inner rounded-lg px-5 py-9" onSubmit={handleSubmit}>
                 <div>
                     <div className="text-center text-light-400 uppercase text-sm font-medium mb-2">WELCOME BACK</div>
                     <h2 className="text-center font-semibold text-light-white mb-11">Sign in to your account</h2>
