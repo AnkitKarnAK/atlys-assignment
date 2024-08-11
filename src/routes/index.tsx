@@ -1,4 +1,4 @@
-import App from '@/App'
+import { FeedCard } from '@/components/FeedCard'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
@@ -7,6 +7,8 @@ export const Route = createFileRoute('/')({
 
 function Index() {
     return (
-        <App />
+        <main className="m-auto max-w-[700px] py-[70px] mobile:p-5">
+            <FeedCard />
+        </main>
     )
 }

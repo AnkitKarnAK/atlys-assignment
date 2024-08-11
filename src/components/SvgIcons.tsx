@@ -1,5 +1,7 @@
 import { CSSProperties, useCallback } from 'react';
 import Logo from '@/assets/svgs/logo.svg?react';
+import ChatBubble from '@/assets/svgs/chat-bubble.svg?react';
+import DotsHorizontal from '@/assets/svgs/dots-horizontal.svg?react';
 
 export type SvgIconTypes = keyof typeof svgIconRegistry
 
@@ -42,6 +44,8 @@ export const SvgIcons = ({ icon, width, height, color, bgColor, style, className
 
 
 export const svgIconRegistry = {
+    ChatBubble: <ChatBubble />,
+    DotsHorizontal: <DotsHorizontal />,
     Logo: <Logo />,
     // Add more icons here
 }
