@@ -22,7 +22,7 @@ function Index() {
                 </div>}
 
                 <div className={"w-full max-w-[580px] mb-10"}>
-                    <h1 className="mb-3 text-xl font-medium leading-none text-light-500">Hello {authUser?.name || authUser?.username || "User"}</h1>
+                    <h1 className="mb-3 text-xl font-medium leading-none text-light-500">Hello {authUser?.firstName || authUser?.username || "User"}</h1>
                     <p className="text-base font-normal text-light-300">
                         How are you doing today? Would you like to share something with the community 🤗
                     </p>

@@ -3,21 +3,23 @@ import { User } from "@/store/users-store";
 const initialUsers: User[] = [
     {
         id: '1',
-        name: 'John Doe',
+        firstName: 'Marvin',
+        lastName: "McKinney",
         photo: "/images/user1.png",
         createdAt: "2021-06-01 12:00:00",
-        email: "johndoe@gmail.com",
-        username: "johndoe",
-        password: "john@1234"
+        email: "userone@gmail.com",
+        username: "userone",
+        password: "Test@1234"
     },
     {
         id: '2',
-        name: 'Jane Smith',
+        firstName: 'Theresa',
+        lastName: "Webb",
         photo: "/images/user2.png",
         createdAt: "2021-06-01 12:00:00",
-        email: "janesmith@gmail.com",
-        username: "janesmith",
-        password: "jane@1234"
+        email: "usertwo@gmail.com",
+        username: "usertwo",
+        password: "Test@1234"
     }
 ]
 
