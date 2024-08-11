@@ -1,5 +1,6 @@
 import { Card, SvgIcons } from "@/components"
 import { Post } from "@/data/posts"
+import { useAuthUser } from "@/store/auth-store"
 import { useUser } from "@/store/users-store"
 import { timeAgo } from "@/utils"
 
@@ -10,6 +11,7 @@ interface FeedCardProps {
 export const FeedCard = ({ post }: FeedCardProps) => {
 
     const postUser = useUser(post.userId)
+    const authUser = useAuthUser()
 
     return (
         <>
@@ -30,9 +32,9 @@ export const FeedCard = ({ post }: FeedCardProps) => {
                             </div>
                         </div>
 
-                        <button>
+                        {authUser?.id === postUser?.id && <button>
                             <SvgIcons icon={"DotsHorizontal"} width={20} color="#C5C7CA" />
-                        </button>
+                        </button>}
                     </div>
 
                     <div className="mb-3 p-4 flex items-center gap-4 rounded-lg bg-primary-300">
