@@ -1,19 +1,31 @@
 import { Card, SvgIcons } from "@/components"
+import { Post } from "@/data/posts"
+import { useUser } from "@/store/users-store"
+import { timeAgo } from "@/utils"
 
-export const FeedCard = () => {
+interface FeedCardProps {
+    post: Post
+}
+
+export const FeedCard = ({ post }: FeedCardProps) => {
+
+    const postUser = useUser(post.userId)
+
     return (
         <>
-            <Card >
+            <Card className="my-4" >
                 <div>
                     <div className="flex justify-between items-center mb-5">
                         <div className="flex items-center gap-4">
-                            {/* <div className="h-11 w-11 min-w-11 self-start flex items-center justify-center rounded-full bg-primary-500">K</div> */}
-                            <img src="/images/user-2.png" alt="profile picture of Jane Smith" className="h-11 w-11 rounded-full" />
+                            {postUser?.photo
+                                ? <img src={postUser?.photo} alt={`profile picture of ${postUser?.name || postUser?.username}`} className="h-11 w-11 rounded-full" />
+                                : <div className="h-11 w-11 min-w-11 self-start flex items-center justify-center rounded-full bg-primary-500">{postUser?.firstName?.[0] || postUser?.username?.[0]}</div>
+                            }
                             <div className="">
-                                <h3 className="font-medium text-light-500">Jane Smith</h3>
+                                <h3 className="font-medium text-light-500">{postUser?.name || postUser?.username}</h3>
                                 <div className="text-sm font-medium text-light-300">
-                                    <span>a month ago</span>
-                                    <span> • Edited</span>
+                                    <span>{timeAgo(post.createdAt)}</span>
+                                    {post.createdAt !== post?.updatedAt && <span> • Edited</span>}
                                 </div>
                             </div>
                         </div>
@@ -25,19 +37,17 @@ export const FeedCard = () => {
 
                     <div className="mb-3 p-4 flex items-center gap-4 rounded-lg bg-primary-300">
                         <div className="h-12 w-12 min-w-12 self-start flex items-center justify-center rounded-full bg-dark-500">
-                            🙂
+                            {post?.emoji}
                         </div>
-                        <p className="text-light-300">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+                        <p className="text-light-300">{post.text}</p>
                     </div>
 
                     <div className="flex items-center gap-2 cursor-pointer">
                         <SvgIcons icon="ChatBubble" color="#C5C7CA" width={20} />
-                        <span className="text-sm font-medium text-light-300">4 comments</span>
+                        <span className="text-sm font-medium text-light-300">{post?.commentIds?.length || "No"} {post?.commentIds?.length > 1 ? "comments" : "comment"}</span>
                     </div>
-
-
                 </div>
-            </Card>
+            </Card >
         </>
     )
 }

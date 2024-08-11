@@ -1,4 +1,5 @@
 import { AddFeed, FeedCard } from '@/components'
+import { initialPosts } from '@/data/posts';
 import { useAuthUser, useIsLoggedIn } from '@/store/auth-store'
 import { createFileRoute } from '@tanstack/react-router'
 
@@ -30,7 +31,9 @@ function Index() {
 
                 <AddFeed />
 
-                <FeedCard />
+                {
+                    initialPosts.map(post => <FeedCard key={post.id} post={post} />)
+                }
             </main>
         </>
     )

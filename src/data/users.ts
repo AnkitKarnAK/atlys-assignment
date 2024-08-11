@@ -2,20 +2,22 @@ import { User } from "@/store/users-store";
 
 const initialUsers: User[] = [
     {
-        id: '1',
+        id: 'user1',
         firstName: 'Marvin',
         lastName: "McKinney",
-        photo: "/images/user1.png",
+        name: "Marvin McKinney",
+        photo: "/images/user-1.png",
         createdAt: "2021-06-01 12:00:00",
         email: "userone@gmail.com",
         username: "userone",
         password: "Test@1234"
     },
     {
-        id: '2',
+        id: 'user2',
         firstName: 'Theresa',
         lastName: "Webb",
-        photo: "/images/user2.png",
+        name: "Theresa Webb",
+        photo: "/images/user-2.png",
         createdAt: "2021-06-01 12:00:00",
         email: "usertwo@gmail.com",
         username: "usertwo",

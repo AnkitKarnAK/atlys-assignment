@@ -10,6 +10,7 @@ export type User = {
     password: string;
     firstName?: string;
     lastName?: string;
+    name?: string;
     photo?: string;
     createdAt: string;
 }
@@ -71,10 +72,4 @@ export const useUsersStore = create<UsersStore>()(
 )
 
 export const useUsersActions = () => useUsersStore((state) => state.actions)
-export const useUsers = () => useUsersStore(state => {
-    return {
-        usersById: state.usersById,
-        allUsersId: state.allUsersId,
-        users: state.allUsersId.map(id => state.usersById[id])
-    }
-})
+export const useUser = (id: string) => useUsersStore(state => state.usersById[id])
