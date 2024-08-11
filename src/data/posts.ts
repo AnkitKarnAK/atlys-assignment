@@ -35,5 +35,14 @@ export const initialPosts: Post[] = [
         createdAt: '2024-06-01 12:00:00',
         updatedAt: '2024-06-01 12:00:00',
         commentIds: []
+    },
+    {
+        id: 'post4',
+        userId: 'user3',
+        text: 'Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.',
+        emoji: '😇',
+        createdAt: '2024-05-01 12:00:00',
+        updatedAt: '2024-05-01 12:00:00',
+        commentIds: ['comment6']
     }
 ]

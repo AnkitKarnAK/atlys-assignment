@@ -21,7 +21,7 @@ export const FeedCard = ({ post }: FeedCardProps) => {
                         <div className="flex items-center gap-4">
                             {postUser?.photo
                                 ? <img src={postUser?.photo} alt={`profile picture of ${postUser?.name || postUser?.username}`} className="h-11 w-11 rounded-full" />
-                                : <div className="h-11 w-11 min-w-11 self-start flex items-center justify-center rounded-full bg-primary-500">{postUser?.firstName?.[0] || postUser?.username?.[0]}</div>
+                                : <div className="h-11 w-11 min-w-11 text-light-500 self-start flex items-center justify-center rounded-full bg-primary-500">{postUser?.firstName?.[0] || postUser?.username?.[0]}</div>
                             }
                             <div className="">
                                 <h3 className="font-medium text-light-500">{postUser?.name || postUser?.username}</h3>
@@ -38,7 +38,7 @@ export const FeedCard = ({ post }: FeedCardProps) => {
                     </div>
 
                     <div className="mb-3 p-4 flex items-center gap-4 rounded-lg bg-primary-300">
-                        <div className="h-12 w-12 min-w-12 self-start flex items-center justify-center rounded-full bg-dark-500">
+                        <div className="h-12 w-12 min-w-12 text-xl self-start flex items-center justify-center rounded-full bg-dark-500">
                             {post?.emoji}
                         </div>
                         <p className="text-light-300">{post.text}</p>

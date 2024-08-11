@@ -8,7 +8,7 @@ export const AddFeed = () => {
                     <h2 className="text-lg font-medium text-light-500">Create post</h2>
 
                     <div className="flex cursor-text items-center gap-4 rounded-lg bg-primary-300 p-4">
-                        <div className="h-12 w-12 min-w-12 self-start flex items-center justify-center rounded-full bg-dark-500">
+                        <div className="h-12 w-12 min-w-12 text-xl self-start flex items-center justify-center rounded-full bg-dark-500">
                             🙂
                         </div>
                         <div className="flex flex-col w-full">

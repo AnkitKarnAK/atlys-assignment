@@ -22,6 +22,16 @@ const initialUsers: User[] = [
         email: "usertwo@gmail.com",
         username: "usertwo",
         password: "Test@1234"
+    },
+    {
+        id: 'user3',
+        firstName: 'Ankit',
+        lastName: "Karn",
+        name: "Ankit Karn",
+        createdAt: "2021-06-01 12:00:00",
+        email: "ankit.karn.ak@gmail.com",
+        username: "ankitkarn",
+        password: "Test@1234"
     }
 ]
 
