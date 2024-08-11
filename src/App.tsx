@@ -1,14 +1,13 @@
 import './App.css'
-import { SvgIcons } from '@/components'
+import { LoginDialog, SvgIcons } from '@/components'
 
 function App() {
 
   return (
-    <div>
-      <SvgIcons icon={"Logo"} width={40} />
-      <h1 className="text-3xl font-bold underline text-dark-500">
-        Hello world!
-      </h1>
+    <div className='h-dvh flex flex-col justify-center items-center'>
+      <SvgIcons icon={"Logo"} width={40} className='mb-12' />
+
+      <LoginDialog />
     </div>
   )
 }

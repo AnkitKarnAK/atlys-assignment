@@ -21,9 +21,16 @@ export default {
         },
         light: {
           500: "#C5C7CA", // post card title
+          400: "#6B6C70", // main title
           300: "#7F8084", // post card text
           white: "#FFFFFF", // post card text
         },
+      },
+
+      backgroundImage: {
+        "gradient-inner":
+          "linear-gradient(to bottom, #27292d, #27292d), linear-gradient(132deg, #969696, #343434 98%)",
+        "gradient-ring-outer": "linear-gradient(132deg, #969696, #343434 98%)",
       },
     },
   },

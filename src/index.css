@@ -5,5 +5,9 @@
 @layer base {
     body {
       @apply bg-primary-500 text-white;
+
+      input{
+        @apply outline-none border-solid border-dark-300 border-[1.5px] rounded bg-transparent p-4 focus:border-light-300;
+      }
     }
   }
