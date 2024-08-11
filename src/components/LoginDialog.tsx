@@ -1,6 +1,10 @@
 import { Button } from "@/components"
+import { useNavigate } from "@tanstack/react-router"
 
 export const LoginDialog = () => {
+
+    const navigate = useNavigate();
+
     return (
         <div className="w-full max-w-[464px] bg-gradient-ring-outer p-0.5 rounded-lg">
             <form className="flex w-full flex-col bg-gradient-inner rounded-lg px-5 py-9">
@@ -36,7 +40,12 @@ export const LoginDialog = () => {
 
                 <div className="mt-3">
                     <span className="text-sm text-light-300 font-medium">
-                        Not registered yet? <button className="text-light-500" onClick={() => { }}>Register →</button>
+                        Not registered yet?{" "}
+                        <button className="text-light-500" onClick={() => {
+                            navigate({
+                                to: "/register"
+                            })
+                        }}>Register →</button>
                     </span>
                 </div>
 
