@@ -32,6 +32,19 @@ export default {
           "linear-gradient(to bottom, #27292d, #27292d), linear-gradient(132deg, #969696, #343434 98%)",
         "gradient-ring-outer": "linear-gradient(132deg, #969696, #343434 98%)",
       },
+
+      screens: {
+        mobile: {
+          max: "639px",
+        },
+        tablet: {
+          min: "640px",
+          max: "1023px",
+        },
+        desktop: {
+          min: "1024px",
+        },
+      },
     },
   },
   plugins: [],
