@@ -1,4 +1,4 @@
-import { FeedCard } from '@/components/FeedCard'
+import { AddFeed, FeedCard } from '@/components'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/')({
@@ -15,6 +15,8 @@ function Index() {
                     How are you doing today? Would you like to share something with the community 🤗
                 </p>
             </div>
+
+            <AddFeed />
 
             <FeedCard />
         </main>
