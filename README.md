@@ -1,50 +1,38 @@
-# React + TypeScript + Vite
+# Atlys Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project has these routes:
 
-Currently, two official plugins are available:
+- "/" home (contains feeds)
+- "/login" Login
+- "/register" Register
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Feed Page
 
-## Expanding the ESLint configuration
+- Starts with Welcome intro. (if logged in user then uses thier name else just says "Hello User")
+- Create Post section
+- Feeds
+- if not logged in: Login or Register button on top right which opens respective modal
+- if logged in: Logout button on top right for logging out
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Login Page
 
-- Configure the top-level `parserOptions` property like this:
+- Click https://atlys-assignment-ankitkarn.vercel.app/login to go to login page.
+- Contains Login Form.
+- Use username `userone` & password `Test@1234` to login.
+- Other usernames are `usertwo`, `userthree` both uses password as `Test@1234`.
+- Clicking on Register will navigate to register page.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Register Page
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Click https://atlys-assignment-ankitkarn.vercel.app/register to go to register page.
+- Contains Registration Form.
+- You can create a new user & it will persist on your device.
+- Clickin on Login will navigate to login page.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### Tech Stack
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- React
+- TypeScript
+- Tailwind
+- Zustand (for state management & persisting data)
+- Tanstack Router (for client side routing)
