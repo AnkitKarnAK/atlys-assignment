@@ -2,7 +2,11 @@ import { Button } from "@/components"
 import { useAuthActions } from "@/store/auth-store";
 import { useNavigate } from "@tanstack/react-router"
 
-export const LoginDialog = () => {
+interface LoginDialogProps {
+    openRegisterDialog?: () => void;
+}
+
+export const LoginDialog = ({ openRegisterDialog }: LoginDialogProps) => {
     const navigate = useNavigate();
     const { login } = useAuthActions();
 
@@ -26,6 +30,11 @@ export const LoginDialog = () => {
 
     }
 
+    const navigateToRegister = () => {
+        navigate({
+            to: "/register"
+        })
+    }
 
 
     return (
@@ -64,11 +73,9 @@ export const LoginDialog = () => {
                 <div className="mt-3">
                     <span className="text-sm text-light-300 font-medium">
                         Not registered yet?{" "}
-                        <button className="text-light-500" onClick={() => {
-                            navigate({
-                                to: "/register"
-                            })
-                        }}>Register →</button>
+                        <button className="text-light-500" onClick={openRegisterDialog || navigateToRegister}>
+                            Register →
+                        </button>
                     </span>
                 </div>
 

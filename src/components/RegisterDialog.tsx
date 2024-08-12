@@ -1,9 +1,19 @@
 import { Button } from "@/components";
 import { useNavigate } from "@tanstack/react-router";
 
-export const RegisterDialog = () => {
+interface RegisterDialogProps {
+    openLoginDialog?: () => void;
+}
+
+export const RegisterDialog = ({ openLoginDialog }: RegisterDialogProps) => {
 
     const navigate = useNavigate();
+
+    const navigateToLogin = () => {
+        navigate({
+            to: "/login"
+        })
+    }
 
 
     return (
@@ -48,12 +58,7 @@ export const RegisterDialog = () => {
                 <div className="mt-3">
                     <span className="text-sm text-light-300 font-medium">
                         Already have an account?{" "}
-                        <button className="text-light-500" onClick={() => {
-                            navigate({
-                                to: "/login"
-                            })
-                        }}
-                        >
+                        <button className="text-light-500" onClick={openLoginDialog || navigateToLogin}>
                             Login →
                         </button>
                     </span>
