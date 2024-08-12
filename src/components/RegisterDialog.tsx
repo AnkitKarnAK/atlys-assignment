@@ -1,13 +1,17 @@
 import { Button } from "@/components";
+import { useAuthActions } from "@/store/auth-store";
 import { useNavigate } from "@tanstack/react-router";
 
 interface RegisterDialogProps {
     openLoginDialog?: () => void;
+    closeRegisterDialog?: () => void;
 }
 
-export const RegisterDialog = ({ openLoginDialog }: RegisterDialogProps) => {
+export const RegisterDialog = ({ openLoginDialog, closeRegisterDialog }: RegisterDialogProps) => {
 
     const navigate = useNavigate();
+
+    const { createUser } = useAuthActions();
 
     const navigateToLogin = () => {
         navigate({
@@ -15,10 +19,37 @@ export const RegisterDialog = ({ openLoginDialog }: RegisterDialogProps) => {
         })
     }
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const form = e.target as HTMLFormElement;
+        const enteredEmail = (form.elements.namedItem('email') as HTMLInputElement).value;
+        const enteredUsername = (form.elements.namedItem('username') as HTMLInputElement).value;
+        const enteredPassword = (form.elements.namedItem('password') as HTMLInputElement).value;
+
+        if (!enteredEmail || !enteredUsername || !enteredPassword) {
+            alert("Please fill all the fields")
+            return;
+        }
+
+        const isAdded = createUser?.({ email: enteredEmail, username: enteredUsername, password: enteredPassword });
+
+        if (isAdded) {
+            navigate({
+                to: "/"
+            })
+
+            closeRegisterDialog?.()
+        } else {
+            alert("User creation failed")
+        }
+
+    }
+
 
     return (
         <div className="w-full max-w-[464px] bg-gradient-ring-outer p-0.5 rounded-lg">
-            <form className="flex w-full flex-col bg-gradient-inner rounded-lg px-5 py-9">
+            <form className="flex w-full flex-col bg-gradient-inner rounded-lg px-5 py-9" onSubmit={handleSubmit}>
                 <div>
                     <div className="text-center text-light-400 uppercase text-sm font-medium mb-2">SIGN UP</div>
                     <h2 className="text-center font-semibold text-light-white mb-11">Create an account to countinue</h2>
