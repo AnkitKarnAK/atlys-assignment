@@ -12,7 +12,7 @@ export const Dialog: React.FC<DialogProps> = ({ isOpen, onClose, closeOnOverlayC
     if (!isOpen) return null;
 
     return (
-        <div className={`fixed top-0 left-0 right-0 bottom-0 flex flex-col items-strech justify-center bg-black bg-opacity-50 ${className}`} onClick={closeOnOverlayClick ? onClose : undefined}>
+        <div className={`fixed top-0 left-0 right-0 bottom-0 flex flex-col items-strech justify-center bg-black backdrop-blur-sm bg-opacity-50 ${className}`} onClick={closeOnOverlayClick ? onClose : undefined}>
             <div className='flex justify-center'>
                 <div className='relative sm:min-w-[464px]' onClick={e => e.stopPropagation()}>
                     {children}
