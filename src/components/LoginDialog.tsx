@@ -19,6 +19,11 @@ export const LoginDialog = ({ openRegisterDialog, closeLoginDialog }: LoginDialo
         const enteredEmailOrUsername = (form.elements.namedItem('emailOrUsername') as HTMLInputElement).value;
         const enteredPassword = (form.elements.namedItem('password') as HTMLInputElement).value;
 
+        if (!enteredEmailOrUsername || !enteredPassword) {
+            alert("Please fill all the fields")
+            return;
+        }
+
         const isSuccess = login?.(enteredEmailOrUsername, enteredPassword);
 
         if (isSuccess) {
