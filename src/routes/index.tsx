@@ -1,7 +1,7 @@
 import { AddFeed, FeedCard, LoginDialog, RegisterDialog } from '@/components'
 import { Dialog } from '@/components/base/Dialog';
 import { initialPosts } from '@/data/posts';
-import { useAuthUser, useIsLoggedIn } from '@/store/auth-store'
+import { useAuthActions, useAuthUser, useIsLoggedIn } from '@/store/auth-store'
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react';
 
@@ -15,6 +15,7 @@ function Index() {
 
     const authUser = useAuthUser();
     const isLoggedIn = useIsLoggedIn();
+    const { logout } = useAuthActions();
 
     const openLoginDialog = () => setDialogOpenFor("login");
     const openRegisterDialog = () => setDialogOpenFor("register");
@@ -27,7 +28,7 @@ function Index() {
             <main className="m-auto max-w-[700px] py-[70px] mobile:p-5">
 
                 <div className="absolute top-0 right-2 p-5 text-xs text-light-500">
-                    {isLoggedIn ? <button className="underline">Logout</button> :
+                    {isLoggedIn ? <button className="underline" onClick={logout}>Logout</button> :
                         <>
                             <button onClick={() => setDialogOpenFor("login")} className="underline">Login</button> | <button onClick={() => setDialogOpenFor("register")} className="underline">Register</button>
                         </>}
@@ -50,14 +51,14 @@ function Index() {
             {
                 dialogOpenFor === "login" &&
                 <Dialog isOpen={dialogOpenFor === "login"} onClose={closeDialog}>
-                    <LoginDialog openRegisterDialog={openRegisterDialog} />
+                    <LoginDialog openRegisterDialog={openRegisterDialog} closeLoginDialog={closeDialog} />
                 </Dialog>
             }
 
             {
                 dialogOpenFor === "register" &&
                 <Dialog isOpen={dialogOpenFor === "register"} onClose={closeDialog}>
-                    <RegisterDialog openLoginDialog={openLoginDialog} />
+                    <RegisterDialog openLoginDialog={openLoginDialog} closeRegisterDialog={closeDialog} />
                 </Dialog>
             }
         </>

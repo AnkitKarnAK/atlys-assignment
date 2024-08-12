@@ -17,7 +17,7 @@ type AuthState = {
 type AuthAction = {
     login: (emailOrUsername: string, password: string) => boolean
     logout: () => void
-    createUser: (user: CreateUser) => void
+    createUser: (user: CreateUser) => boolean
 }
 
 type AuthStore = AuthState & {
@@ -77,6 +77,12 @@ const useAuthStore = create<AuthStore>()(
 
 
                         addUser(newUser)
+
+                        setState(() => ({
+                            user: newUser,
+                            isLoggedIn: true
+                        }))
+                        return true
                     }
                 }
             }

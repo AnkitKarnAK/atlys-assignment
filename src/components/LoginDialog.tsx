@@ -4,9 +4,10 @@ import { useNavigate } from "@tanstack/react-router"
 
 interface LoginDialogProps {
     openRegisterDialog?: () => void;
+    closeLoginDialog?: () => void;
 }
 
-export const LoginDialog = ({ openRegisterDialog }: LoginDialogProps) => {
+export const LoginDialog = ({ openRegisterDialog, closeLoginDialog }: LoginDialogProps) => {
     const navigate = useNavigate();
     const { login } = useAuthActions();
 
@@ -24,6 +25,8 @@ export const LoginDialog = ({ openRegisterDialog }: LoginDialogProps) => {
             navigate({
                 to: "/"
             })
+
+            closeLoginDialog?.()
         } else {
             alert("Login failed")
         }
