@@ -39,7 +39,7 @@ export const initialPosts: Post[] = [
     {
         id: 'post4',
         userId: 'user3',
-        text: 'Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.',
+        text: 'To login use username as `userone` and password as `Test@1234`',
         emoji: '😇',
         createdAt: '2024-05-01 12:00:00',
         updatedAt: '2024-05-01 12:00:00',
